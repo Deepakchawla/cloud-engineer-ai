@@ -6,8 +6,13 @@ def generate_code(user_prompt, api_key):
 
     llm = OpenAI(temperature=0,openai_api_key=api_key)
 
-    prompt_template = """Ignore all previous instructions.
-    Generate Python code using the 'diagrams' library to create an AWS architecture diagram.
+    prompt_template = """Using the 'diagrams' library in Python, generate Python code to create an AWS architecture diagram. 
+    Please specify which AWS services or components you want to include in the diagram, and indicate where you would like to 
+    add them within the diagram.
+    
+    Please note that my capabilities are limited to assisting with Python code generation and architectural diagram design 
+    using the 'diagrams' library. For any other questions or requests outside of this scope, I apologize, but I won't be able 
+    to provide assistance. Feel free to share a custom message if you need help with something else.
 
     requirement: {program} """
     PROMPT = PromptTemplate(

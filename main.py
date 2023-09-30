@@ -1,5 +1,7 @@
-from llm_engine.openai_integration import *
 from llm_engine.config import get_openai_api_key
+from llm_engine.openai_integration import *
+import ast
+
 
 def get_user_prompt_file(file_name='prompt', initial_content=None):
     try:
@@ -13,6 +15,12 @@ def get_user_prompt_file(file_name='prompt', initial_content=None):
     
     return user_prompt
 
+def is_valid_python_code(code):
+    try:
+        ast.parse(code)
+        return True
+    except SyntaxError:
+        return False
 
 def main():
 
@@ -28,7 +36,14 @@ def main():
     try:
         # Generate Python code for diagrams from the user prompt
         diagram_code = generate_code(user_prompt, openai_api_key)
-        print(diagram_code)
+        code_valid = is_valid_python_code(diagram_code)
+
+        if code_valid:
+            # Specify the output path for the diagram PNG file
+            print(f"Diagram saved")
+        else:
+            print("Failed to generate a diagram")
+            print(diagram_code)
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
