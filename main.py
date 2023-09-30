@@ -48,6 +48,11 @@ def main():
             print("Failed to generate a diagram")
             print(diagram_code)
 
+        
+        terraform_code = generate_terraform_code(user_prompt, openai_api_key)
+        print(terraform_code)
+
+
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
