@@ -1,10 +1,10 @@
-from llm_engine.config import get_openai_api_key
-from llm_engine.openai_integration import *
-from llm_engine.presentation import *
+from config import get_openai_api_key
+from openai_integration import *
+from presentation import *
 import ast
 
 
-def get_user_prompt_file(file_name='prompt', initial_content=None):
+def get_user_prompt_file(file_name='../project/input/prompt', initial_content=None):
     try:
         with open(file_name, 'r') as file:
             user_prompt = file.read()

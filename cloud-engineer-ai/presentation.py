@@ -30,7 +30,7 @@ def generate_diagram_from_code(diagram_code):
     Args:
         diagram_code (str): Python code representing the diagram.
     """
-    folder_path = 'llm_engine/assets'
+    folder_path = '../project/output'
     file_name = 'generated_diagram_code.py'
 
     create_folder_and_file(folder_path, file_name, diagram_code)
@@ -53,14 +53,14 @@ def generate_diagram_from_code(diagram_code):
 
 def move_generate_image(image_name):
     
-    folder_path = 'llm_engine/assets'
+    folder_path = '../project/output/'
 
     create_folder(folder_path)
 
     source_path = image_name + ".png"
 
     # Define the target folder where you want to move the image
-    target_path = "llm_engine/assets/"+image_name+".png"
+    target_path = folder_path+image_name+".png"
 
     # Move the file to the target folder
     shutil.move(source_path, target_path)
@@ -85,7 +85,7 @@ def fetch_image_name(diagram_code):
     return image_name
 
 def generate_file_from_code(terraform_code):
-    folder_path = 'llm_engine/assets'
+    folder_path = '../project/output'
     file_name = 'terraform.tf'
 
     create_folder_and_file(folder_path, file_name, terraform_code)
