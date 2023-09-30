@@ -1,5 +1,6 @@
 from llm_engine.config import get_openai_api_key
 from llm_engine.openai_integration import *
+from llm_engine.presentation import *
 import ast
 
 
@@ -40,6 +41,8 @@ def main():
 
         if code_valid:
             # Specify the output path for the diagram PNG file
+            generate_diagram_from_code(diagram_code)
+            
             print(f"Diagram saved")
         else:
             print("Failed to generate a diagram")
