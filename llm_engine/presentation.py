@@ -84,5 +84,10 @@ def fetch_image_name(diagram_code):
     
     return image_name
 
+def generate_file_from_code(terraform_code):
+    folder_path = 'llm_engine/assets'
+    file_name = 'terraform.tf'
+
+    create_folder_and_file(folder_path, file_name, terraform_code)
 
         

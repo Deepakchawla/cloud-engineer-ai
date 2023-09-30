@@ -48,10 +48,15 @@ def main():
             print("Failed to generate a diagram")
             print(diagram_code)
 
-        
         terraform_code = generate_terraform_code(user_prompt, openai_api_key)
-        print(terraform_code)
 
+        if terraform_code:
+            # Specify the output path for the diagram PNG file
+            generate_file_from_code(terraform_code)
+            
+            print(f"file saved")
+        else:
+            print("Failed to create a file.")
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
